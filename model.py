@@ -149,8 +149,8 @@ print(f" Validation Accuracy: {val_accuracy:.2%}")
 model.save('/root/fishyfinder/final_model.h5')
 print("\n Model saved to /root/fishyfinder/final_model.h5")
 
-validation_generator.reset()  # Reset to start from beginning
-x_batch, y_batch = next(validation_generator)
+validation_generator.reset()  
+model.evaluate(validation_generator)
 
 # Make predictions
 predictions = model.predict(x_batch, verbose=0)
